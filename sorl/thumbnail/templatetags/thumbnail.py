@@ -85,7 +85,7 @@ class ThumbnailNode(ThumbnailNodeBase):
         options = {}
         for key, expr in self.options:
             noresolve = {u'True': True, u'False': False, u'None': None}
-            value = noresolve.get(unicode(expr), expr.resolve(context))
+            value = str(noresolve.get(unicode(expr), expr.resolve(context)))
             if key == 'options':
                 options.update(value)
             else:
